@@ -29,7 +29,8 @@ sub download_images
 			$image=~s/.*?\///isg;
 		}
 		$image="/home/nambiaruran/Desktop/Pawan/logs/"."$image";
-		getstore($image_url, $image);
+		#getstore($image_url, $image);
+		system("wget --tries=3 --user-agent=\"googlebot(compatible; Mozilla 4.0; MSIE 5.5)\"  -q -t 6 -O $image \"$image_url\" &");
 		$cnt++;
 	}
 	if($temp<$cnt)
